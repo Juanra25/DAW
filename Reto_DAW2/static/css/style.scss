@@ -1,0 +1,100 @@
+@use "vars";
+@use "footer";
+@use "nosotros";
+@use "page";
+@use "producto";
+@use "contact";
+@use "login";
+
+
+header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: vars.$color_fondo_header;
+    position: sticky;
+    top:0px;
+    z-index: 9;
+
+    img{
+        height:75px;
+        margin: 5px;
+    }
+
+    nav{
+        align-self: stretch;
+        background-color: vars.$color_fondo_menu;
+        color:vars.$color_fuente_menu;
+        display:flex;
+        justify-content:space-between;
+
+        ul{
+            display:flex;
+            list-style-type: none;
+            margin:0;
+            padding:0;
+
+            li{
+                position: relative;
+                padding: vars.$paddingheader;
+                font-size:vars.$tamaño_letra_menu;
+                color:vars.$color_fuente_menu;
+
+                &:hover{
+                    text-shadow: 2px 2px 3px #e84a5f;
+                    background-color: vars.$hover;
+                }                
+            }
+
+        }
+
+        ul li:hover ul.submenu{
+            display: flex;
+            visibility: visible;
+            opacity: 1;
+
+            &.izq{
+                right:0;
+                left:auto;
+            }
+        }
+
+        ul.submenu{
+            min-width:30rem;
+            transition: 1s;
+            opacity: 0;
+            visibility: hidden;
+            flex-direction:column;
+            position:absolute;
+            top:calc(2*vars.$paddingheader + vars.$tamaño_letra_menu);
+            left: 0;
+            background: vars.$color_fondo_menu;
+            z-index:9;
+        }
+
+        a{
+            color:vars.$color_fuente_menu;
+            text-decoration: none;
+        }
+
+        input[type=search]{
+            position:absolute;
+            right:1rem;
+            width:2rem;
+            transition:0.3s;
+            padding:0.3rem;
+            font-size: 1.3rem;
+            &:focus{
+                width:10rem;
+            }
+        }
+
+    }
+
+
+
+}
+
+
+
+
